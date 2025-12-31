@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year My Love ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0c0032 0%, #190061 30%, #240090 70%, #3500d3 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Gif container - LIMITED HEIGHT */
+        .gif-container {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Reduced from full screen */
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0c0032;
+            overflow: hidden;
+        }
+        
+        .gif-container img {
+            /* width: 100%; */
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+        }
+        
+        /* Main content container - BELOW GIF */
+        .main-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            min-height: calc(100vh - 600px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 40px 20px 100px;
+            text-align: center;
+            background: linear-gradient(to bottom, 
+                rgba(53, 0, 211, 0.9) 0%,
+                rgba(25, 0, 97, 0.95) 30%,
+                rgba(12, 0, 50, 1) 100%);
+        }
+        
+        /* Title styles */
+        .title {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            color: #ffd700;
+            font-family: 'Brush Script MT', cursive;
+            animation: titleGlow 3s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
+            100% { text-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.8); }
+        }
+        
+        /* Decorative separator */
+        .separator {
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, #ff4081, #ffd700, transparent);
+            margin: 20px auto 30px;
+            border-radius: 3px;
+        }
+        
+        /* Welcome message */
+        .welcome-message {
+            font-size: 1.5rem;
+            color: #ffb6c1;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            max-width: 800px;
+            line-height: 1.6;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Countdown styling */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0 50px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.2), rgba(255, 64, 129, 0.2));
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 120px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff4081, #ffd700, #ff4081);
+        }
+        
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            font-family: 'Arial Black', sans-serif;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            color: #ffb6c1;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        /* Photo gallery */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            max-width: 1000px;
+        }
+        
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 5px solid #ffd700;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .photo-frame:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff4081, #ffd700);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .photo-frame:nth-child(2) .photo-placeholder {
+            background: linear-gradient(45deg, #2196F3, #9C27B0);
+        }
+        
+        .photo-frame:nth-child(3) .photo-placeholder {
+            background: linear-gradient(45deg, #4CAF50, #FF9800);
+        }
+        
+        .photo-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* Love quote */
+        .love-quote {
+            font-size: 1.6rem;
+            color: #ffb6c1;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 25px;
+            border-left: 5px solid #ff4081;
+            border-right: 5px solid #ffd700;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .love-quote:before, .love-quote:after {
+            content: '"';
+            font-size: 3rem;
+            color: #ffd700;
+            position: absolute;
+            opacity: 0.5;
+        }
+        
+        .love-quote:before {
+            top: 10px;
+            left: 20px;
+        }
+        
+        .love-quote:after {
+            bottom: 10px;
+            right: 20px;
+        }
+        
+        /* Envelope in bottom right corner */
+        .envelope-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            cursor: pointer;
+            animation: envelopeShake 5s infinite;
+        }
+        
+        @keyframes envelopeShake {
+            0%, 85%, 100% { transform: translateY(0) rotate(0deg); }
+            87% { transform: translateY(-5px) rotate(-2deg); }
+            89% { transform: translateY(5px) rotate(2deg); }
+            91% { transform: translateY(-5px) rotate(-2deg); }
+            93% { transform: translateY(5px) rotate(2deg); }
+            95% { transform: translateY(-3px) rotate(-1deg); }
+            97% { transform: translateY(3px) rotate(1deg); }
+        }
+        
+        .envelope {
+            width: 120px;
+            height: 90px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        
+        .envelope:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 10px;
+            z-index: 1;
+        }
+        
+        .envelope-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff4081;
+            font-size: 2rem;
+            z-index: 3;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .envelope-text {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Letter modal */
+        .letter-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+            padding: 20px;
+        }
+        
+        .letter-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .letter {
+            width: 90%;
+            max-width: 700px;
+            background: linear-gradient(to bottom, #fffaf0, #fff5e6);
+            color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.5s;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .letter-modal.active .letter {
+            transform: scale(1);
+        }
+        
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 20px;
+        }
+        
+        .letter-title {
+            font-size: 2.5rem;
+            color: #b8860b;
+            font-family: 'Brush Script MT', cursive;
+            margin-bottom: 10px;
+        }
+        
+        .letter-date {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .letter-content {
+            font-size: 1.3rem;
+            color: #444;
+            margin-bottom: 30px;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-size: 1.8rem;
+            color: #b8860b;
+            font-family: 'Brush Script MT', cursive;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px dashed #ffd700;
+        }
+        
+        .close-letter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4081;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+        
+        .close-letter:hover {
+            background: #ff1a66;
+        }
+        
+        /* Fireworks effect */
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 150;
+        }
+        
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff0;
+        }
+        
+        /* Footer */
+        .footer {
+            position: relative;
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .gif-container {
+                height: 400px;
+            }
+            
+            .main-container {
+                min-height: calc(100vh - 400px);
+                padding: 30px 15px 80px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+                margin: 15px 0;
+            }
+            
+            .welcome-message {
+                font-size: 1.2rem;
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .countdown {
+                gap: 15px;
+                margin: 25px 0 40px;
+            }
+            
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2.2rem;
+            }
+            
+            .photo-gallery {
+                gap: 15px;
+                margin: 30px 0;
+            }
+            
+            .photo-frame {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .love-quote {
+                font-size: 1.3rem;
+                padding: 20px;
+                margin: 30px auto;
+            }
+            
+            .envelope-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .envelope {
+                width: 90px;
+                height: 70px;
+            }
+            
+            .envelope-heart {
+                font-size: 1.5rem;
+            }
+            
+            .letter {
+                padding: 25px 20px;
+            }
+            
+            .letter-title {
+                font-size: 2rem;
+            }
+            
+            .letter-content {
+                font-size: 1.1rem;
+            }
+            
+            .letter-signature {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gif-container {
+                height: 300px;
+            }
+            
+            .main-container {
+                min-height: calc(100vh - 300px);
+                padding: 20px 10px 70px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .welcome-message {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 12px 8px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            .photo-frame {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .love-quote {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .envelope-container {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .envelope {
+                width: 80px;
+                height: 60px;
+            }
+            
+            .envelope-heart {
+                font-size: 1.2rem;
+            }
+            
+            .envelope-text {
+                font-size: 0.8rem;
+                bottom: -20px;
+            }
+        }
+        
+        /* iPad specific */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .gif-container {
+                height: 500px;
+            }
+            
+            .main-container {
+                min-height: calc(100vh - 500px);
+            }
+            
+            .title {
+                font-size: 3rem;
+            }
+            
+            .welcome-message {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Landscape mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .gif-container {
+                height: 250px;
+            }
+            
+            .main-container {
+                min-height: calc(100vh - 250px);
+                padding: 20px 15px 60px;
+            }
+            
+            .title {
+                font-size: 2rem;
+                margin: 10px 0;
+            }
+            
+            .welcome-message {
+                font-size: 1rem;
+                margin-bottom: 20px;
+                padding: 10px;
+            }
+            
+            .countdown {
+                margin: 20px 0;
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px 5px;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .envelope:hover {
+                transform: none;
+            }
+            
+            .close-letter:hover {
+                background: #ff4081;
+            }
+            
+            .envelope-container:active {
+                transform: scale(0.95);
+            }
+            
+            .photo-frame:hover {
+                transform: none;
+            }
+        }
+        
+        /* Safe area for modern devices */
+        @supports (padding: max(0px)) {
+            .main-container {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-bottom: max(100px, calc(env(safe-area-inset-bottom) + 80px));
+            }
+            
+            .envelope-container {
+                bottom: max(30px, env(safe-area-inset-bottom));
+                right: max(30px, env(safe-area-inset-right));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background GIF -->
+    <div class="gif-container">
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDVsd2ZweHBibHBlbnZqajAyeGZqeHRhdDN0cXJkNTVlam1ipeGd0NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VYYvJjrH5VLV22iKpM/giphy.gif" alt="New Year Celebration">
+    </div>
+    
+    <!-- Fireworks container -->
+    <div class="fireworks-container" id="fireworks"></div>
+    
+    <!-- Main content -->
+    <div class="main-container">
+        <h1 class="title">Happy New Year, My Love! ❤️</h1>
+        
+        <div class="separator"></div>
+        
+        <div class="welcome-message">
+            Arzum...Ən dəyərlim... 2026 daha düşərli,sevinc, xoşbəxtlik dolu olsun.
+        </div>
+        
+        <!-- Countdown -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Envelope in bottom right corner -->
+    <div class="envelope-container" id="envelope">
+        <div class="envelope">
+            <div class="envelope-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+        <div class="envelope-text">Məktubu aç ömrüm</div>
+    </div>
+    
+    <!-- Letter modal -->
+    <div class="letter-modal" id="letterModal">
+        <div class="letter">
+            <button class="close-letter" id="closeLetter">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="letter-header">
+                <h2 class="letter-title">My Dearest Love,</h2>
+                <div class="letter-date">December 31, 2024</div>
+            </div>
+            
+           <div class="letter-content">
+            <p>Arzu, 1 il 7 aydır ömrümdəsən, sanki 25 ildir ki ömrümdəsən. Bu müddəti pis, yaxşı, sevinc, kədər, yorğunluq, sevinc dolu yaşamışıq. Mən sevgimizə, sənə, mənə, bizə çox inanıram. Sevgimizin hər şeyin üstəsindən gələcəyinə inanıram, məni sevdiyinə, səni sevdiyimə inanıram.</p>
+            
+            <p>Bu müddət ərzində mənə yaşatdığın hər hiss üçün sənə minnətdaram. Sənə yaşatdığım hər pis hiss üçün üzr diləyirəm. Yeni ilə sənsiz girmək istəməzdim, amma, MM sağ olsun, müddəti uzun tapşırıq veribdi. 2 həftə mənə 2 il kimi gələcək, amma təəssüf ki, kocan ona deyilən hər qaydanı edən biri deyil. Sonuçda qaydalar pozulmaq üçündür, amma bu 2 həftəlik aranın sənin rahatlığın üçün daha əlverişli olduğunu düşünərək, sənin sərhəddini pozmadan sənlə əlaqəyə keçməyə çalışıram.</p>
+            
+            <p>Keçən il bu gün üçün gələcəyə məktub yazmışdıq. O məktub bilmirəm sənə çatıb ya yox,qisaca orda dediyim her bir sey realdir," Bil ki, gələcəkdə biz bir yerdə olacağıq və sən mənim həyatımın ən gözəl hekayəsi olaraq qalacaqsan.Mən səninlə bir yerdə olmaqdan öyrəndim ki, sevgi yalnız hiss deyil; sevgi bir yerdə qurulan xatirələr, dəstəklər və bir-birinə hörmətdir. Biz səninlə bir yerdə güclü bir bağ qurduq, və bu bağ hər zaman bizi qoruyacaq.2026-cı ildə, qarşımıza yeni qapılar açılacaq, amma bir şey dəyişməyəcək: bir-birimizə olan sonsuz sevgi və güvən. O an gələcək və bizə ən gözəl xatirələri yaratmağı davam edəcəyik.", eynisini 2026-2027 üçün eyni formada məktubu yazacağam.</p>
+            
+            <p>Arzu, səndən hər şey üçün üzr diləyirəm. Səni çox sevirəm, yalnız səni arzu edirəm, mənim həyatımın geri qalanı, hər saniyəsi sən ol istəyirəm. Səni çox üzmüşəm, bu 2 həftəlik periodun davam etməməsini o qədər arzu edirəm ki, sənsiz çox çətindir günü keçirmək, amma səni də narahat etmək istəmərəm.Nede olsa seven bir yolla kendini hatirlatip,varligini gosterir dimi.</p>
+            
+            <p>Amma sənə və sənli həyatıma, günlərimə sadiq qalaraq, günümü hər gün videoya çəkmişəm. Əgər bu qaç gündür "kocan nə edir?" deyə merak ediyosan, bu linkdə hamısı var(amma ipadda acarsanki zip faylidir,he bir de videolar random siralama duzulub day eheheh :D). Mən də səni çox merak ediyommm, Arzum.</p>
+            
+            <p>2026-nı yeni başlanğıc edək - 0-dan başlayaq, ən başdan. 29-u bir-birimizi görüb, daha sonra qısa zamanda görüş edən iki aşiq kimi yenidən bir-birimizi kəşf edərək, əfv edərək, severək başlayaq.</p>
+            
+            <p>Mən əminəm ki, ən dibi gördük deyirdik ya, məncə indi ən dibi gördük biz. Buradan daha güclü, daha sağlam, daha bir-birimizə bağlı çıxacağıq. Amma bunun üçün sənin məni bağışlaman, mənim sənin sevgini, etimadını yenidən daha yaxşı qazanmaq üçün əlimdən gələni etməyimlə olacaqdır.Sana soz o gelecey mektubumuzu novbeti defe oxuyanda birlikde huzur dolu oz yuvamizda ya da laplandiyada acib oxuyacagiq,her seyi duzeltmek ucun dircelmisem se de seni itirmemekdir esas meqsedim.</p>
+            
+            <p>Hər şeyin ən qısa zamanda daha yaxşı olması diləyi ilə, səni yeni ilini təbrik edirəm, gözəl istirahətlər diləyirəm.Umid edirem bu tebrik sene catmisdir</p>
+        </div>
+            
+            <div class="letter-signature">
+                Sevgilərlə,<br>
+                <span>Paşa</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // DOM Elements
+        const envelope = document.getElementById('envelope');
+        const letterModal = document.getElementById('letterModal');
+        const closeLetter = document.getElementById('closeLetter');
+        const signature = document.getElementById('signature');
+        const fireworksContainer = document.getElementById('fireworks');
+        
+        // Countdown elements
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        
+        // Envelope click event
+        envelope.addEventListener('click', () => {
+            letterModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            createFireworks();
+        });
+        
+        // Close letter event
+        closeLetter.addEventListener('click', () => {
+            letterModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close letter when clicking outside
+        letterModal.addEventListener('click', (e) => {
+            if (e.target === letterModal) {
+                letterModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Personalized signature
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ask for user's name
+            const userName = prompt("Please enter your name for the signature:", "Your Name");
+            if (userName && userName.trim() !== "") {
+                signature.textContent = userName;
+                
+                // Update title if name is short enough
+                if (userName.length < 20) {
+                    document.querySelector('.title').innerHTML = `Happy New Year, ${userName}! ❤️`;
+                }
+            }
+        });
+        
+        // Countdown function
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const nextYear = currentYear + 1;
+            const newYearDate = new Date(nextYear, 0, 1, 0, 0, 0);
+            
+            const timeDiff = newYearDate - now;
+            
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            daysEl.textContent = days.toString().padStart(2, '0');
+            hoursEl.textContent = hours.toString().padStart(2, '0');
+            minutesEl.textContent = minutes.toString().padStart(2, '0');
+            secondsEl.textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Fireworks effect when letter opens
+        function createFireworks() {
+            // Clear any existing fireworks
+            fireworksContainer.innerHTML = '';
+            
+            // Create multiple fireworks
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createFirework(i);
+                }, i * 100);
+            }
+        }
+        
+        function createFirework(index) {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            
+            // Random position
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+            
+            // Random color
+            const colors = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#ff00ff', '#ffa500'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Set firework properties
+            firework.style.left = `${posX}%`;
+            firework.style.top = `${posY}%`;
+            firework.style.backgroundColor = color;
+            firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+            
+            // Add to container
+            fireworksContainer.appendChild(firework);
+            
+            // Animate firework
+            let size = 5;
+            let opacity = 1;
+            let posYCurrent = parseFloat(posY);
+            
+            const animate = () => {
+                size += 2;
+                opacity -= 0.03;
+                posYCurrent -= 0.5;
+                
+                firework.style.width = `${size}px`;
+                firework.style.height = `${size}px`;
+                firework.style.opacity = opacity;
+                firework.style.top = `${posYCurrent}%`;
+                
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    fireworksContainer.removeChild(firework);
+                }
+            };
+            
+            animate();
+        }
+        
+        // Create some random fireworks on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const colors = ['#ff0000', '#ffff00', '#00ff00', '#00ffff'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    firework.style.left = `${posX}%`;
+                    firework.style.top = `${posY}%`;
+                    firework.style.backgroundColor = color;
+                    firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+                    
+                    fireworksContainer.appendChild(firework);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (firework.parentNode) {
+                            fireworksContainer.removeChild(firework);
+                        }
+                    }, 1000);
+                }, i * 300);
+            }
+        });
+        
+        // Add keyboard support
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes letter
+            if (e.key === 'Escape' && letterModal.classList.contains('active')) {
+                letterModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Space key opens letter
+            if (e.key === ' ' && !letterModal.classList.contains('active')) {
+                letterModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                createFireworks();
+            }
+        });
+        
+        // Add touch event for mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
+    </script>
+</body>
+</html>
